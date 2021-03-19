@@ -1,7 +1,7 @@
 # --------------------------------------------------------------------------
 # Polybase Server setup
 #
-# curl https://raw.githubusercontent.com/mardix/polybase-server/master/setup.sh > polybase-server-setup.sh
+# curl https://raw.githubusercontent.com/mardix/polybase-server/main/setup.sh > polybase-server-setup.sh
 # chmod 755 polybase-server-setup.sh
 # ./polybase-server-setup.sh
 #--------------------------------------------------------------------------
