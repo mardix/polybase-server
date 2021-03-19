@@ -1,0 +1,6 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+*/15 * * * * root /etc/polybase-server-backup.sh > /dev/null 2>&1
+0 0 * * * root /etc/polybase-server-backup.sh --archive > /dev/null 2>&1
+

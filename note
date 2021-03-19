@@ -1,0 +1,10 @@
+
+Typesense
+
+After installing, retrieve the API key 
+
+nano /etc/typesense/typesense-server.ini
+
+```
+api-key = xyz
+```
