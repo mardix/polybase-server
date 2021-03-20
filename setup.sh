@@ -33,6 +33,11 @@ while true; do
     echo "Passwords didn't match. Try again"
 done
 echo
+if [ -z "$MAINPWD" ]; then
+    echo
+    echo "ERROR: Password can't (and shouldn't...) be empty! Please provide a valid value!"
+    exit 1
+fi
 
 # Update system
 echo 
