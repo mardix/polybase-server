@@ -85,7 +85,7 @@ echo "------------------------------------------------"
 echo "=======>>> installing Typesense "
 echo 
 curl https://dl.typesense.org/releases/$TYPESENSE_VERSION/typesense-server-$TYPESENSE_VERSION-amd64.deb -o typesense-server.deb
-apt install -y ./typesense-server.deb
+sudo apt install ./typesense-server.deb
 sudo systemctl enable typesense-server
 sudo systemctl restart typesense-server
 
@@ -98,11 +98,11 @@ curl -s https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 source /etc/lsb-release
 echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 sudo apt-get update && sudo apt-get install influxdb
-sudo systemctl unmask influxdb.service
-sudo systemctl start influxdb
 sed -i 's/# auth-enabled = false/auth-enabled = true/g' /etc/influxdb/influxdb.conf
 sed -i 's/# pprof-auth-enabled = false/pprof-auth-enabled = true/g' /etc/influxdb/influxdb.conf
 sed -i 's/# ping-auth-enabled = false/ping-auth-enabled = true/g' /etc/influxdb/influxdb.conf
+sudo systemctl unmask influxdb.service
+sudo systemctl start influxdb
 influx -execute "CREATE USER root WITH PASSWORD '$MAINPWD' WITH ALL PRIVILEGES"
 sudo systemctl restart influxdb
 
